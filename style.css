@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*:focus {
+  outline: none;
+}
+
+body {
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 19%,
+    rgba(120, 210, 66, 1) 71%,
+    rgba(74, 253, 45, 0.87718837535014) 100%
+  );
+}
+.formDetails {
+  border: 2px solid black;
+  width: 30%;
+  margin: 120px auto;
+  padding: 20px;
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(66, 122, 210, 1) 100%,
+    rgba(74, 253, 45, 0.87718837535014) 100%,
+    rgba(192, 70, 207, 1) 100%
+  );
+}
+.heading {
+  text-align: center;
+}
+input,
+#selectCountry {
+  border-radius: 30px;
+  padding: 10px;
+  width: 90%;
+  margin: 10px;
+  margin-bottom: 0;
+}
+.btn {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.textContent {
+  padding: 10px 0;
+}
+.inputGreen {
+  border: 3px solid rgb(6, 236, 6);
+}
+.inputRed {
+  border: 3px solid rgb(236, 33, 6);
+}
+.errorMessageName,
+.errorEmailName,
+.errorCountry,
+.errorPassword,
+.errorConformPassword {
+  /* visibility: hidden; */
+  color: rgb(230, 21, 21);
+  padding-left: 10px;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+#selectCountry {
+  width: 90%;
+}
+
+/*
+
+
+function ValidateCountry(){
+    console.log('selection country',selectCountry.value);
+    var value = selectCountry.value;
+    console.log({value});
+    var text = selectCountry.options[selectCountry.selectedIndex].text;
+    console.log(text);
+    if(Number(value) === -1){
+        // messageIndex='country should be requried';
+       
+     }else{    
+         messageIndex=''
+     }
+     console.log(messageIndex);
+    
+    
+}
+
+ function errorMessageFun(){
+ if(messageIndex){
+    fromEvent.preventDefault();
+    message.textContent=messageIndex
+    }
+    else{
+        fromEvent.preventDefault();
+        message.textContent=messageIndex;
+    }
+}
+*/

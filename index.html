@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section class="formDetails">
+      <form action="" class="form" method="get">
+        <h1 class="heading">SIGN UP</h1>
+        <div class="textContent">
+          <label for="">Name</label>
+          <br />
+          <input id="inputText" type="text" />
+        
+          <div class="errorMessageName">
+           
+          </div>
+        </div>
+        <div class="textContent">
+            <label for="">email</label>
+            <input class="inputEmail" type="email" />
+            <div class="errorEmailName">
+            </div>
+        </div>
+   
+        <div class="textContent">
+          <label for="">country</label> 
+          <!-- <input class="inputText" type="text" />   -->
+          <td>
+              <select id="selectCountry" name="" id="">
+              <option value = "-1" selected>choose your country</option>
+              <option value = "1">USA</option>
+              <option value = "2">UK</option>
+              <option value = "3">INDIA</option>
+            </select>
+          </td>
+
+         
+          <div class="errorCountry">
+          
+           </div>
+      
+         </div>
+    
+        <div class="textContent">
+           <label for="">password</label>    
+           <input class="inputPassword" type="password" />
+           <div class="errorPassword">
+            
+            </div>
+       
+          </div>
+
+        <div class="textContent">
+            <label for="">Confirm password</label>
+            <input class="inputConformPassword" type="password" />
+            <div class="errorConformPassword">
+             
+            </div>
+          </div>
+        </div>
+        <button class="btn">SIGN UP</button>
+      </form>
+    </section>
+    <script src="./script.js"></script>
+  </body>
+</html>
