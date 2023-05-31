@@ -8,23 +8,23 @@ const selectCountry=document.getElementById('selectCountry');
 const errorCountry=document.querySelector('.errorCountry');
 const inputPassword=document.querySelector('.inputPassword');
 const errorPassword =document.querySelector('.errorPassword');
-const inputConformPassword = document.querySelector('.inputConformPassword');
+const inputConfirmPassword = document.querySelector('.inputConfirmPassword');
 const errorConformPassword=document.querySelector('.errorConformPassword');
 
-let messageIndex,fromEvent;
+let messageIndex,fromEvent,data;
 
-inputText.addEventListener('onmouseover',nameInputFun());
-function nameInputFun(){
-    console.log("mouseover");
-}
-
+const obj = {
+    name: "",
+    email: "",
+    country:"",
+    password: "",
+   
+  };
 form.addEventListener('submit',(e)=>{
     fromEvent=e;
     let name=inputText.value
     ValidateName(name);
     errorMessageFun();
-    // 
-    console.log(inputEmail.value);
     ValidateEmail(inputEmail.value);
     errorEmailFun();
     ValidateCountry()
@@ -33,14 +33,16 @@ form.addEventListener('submit',(e)=>{
     passwordFun();
     ValidateConformPassword();
     errorConformPasswordFun();
+    postMethod()
+   
 })
 
 function ValidateConformPassword(name){
-    console.log( inputConformPassword.value,inputPassword.value);
-    if( inputConformPassword.value  === ''||  inputConformPassword.value === null){
+    console.log( inputConfirmPassword.value,inputPassword.value);
+    if( inputConfirmPassword.value  === ''||  inputConfirmPassword.value === null){
      messageIndex='Please enter the password again';
     }
-    else if( inputConformPassword.value === inputPassword.value){
+    else if( inputConfirmPassword.value === inputPassword.value){
     messageIndex='';
    }
    else{
@@ -57,14 +59,17 @@ function errorConformPasswordFun(){
            fromEvent.preventDefault();
            errorConformPassword.textContent=messageIndex;
        }
+    //    obj.Conformpassword=inputConformPassword.value;
    }
 
 function ValidateName(name){
+
     if(name === ''|| name === null){
         messageIndex='name is requried';
      }else{    
          messageIndex=''
      }
+     obj.name=inputText.value;
 }
 
 function errorMessageFun(){
@@ -91,10 +96,13 @@ function  errorEmailFun(){
 
 function ValidateEmail(name) 
 {
+    
     if(name === ''|| name === null){
         messageIndex='email is requried';
+        obj.email=inputEmail.value;
         return;
      }else{
+        obj.email=inputEmail.value;
         var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 if(inputEmail.value.match(mailformat))
 {
@@ -107,6 +115,7 @@ else
 messageIndex="You have entered an invalid email address!";
 return false;
 }}
+
 }  
 
 
@@ -126,12 +135,13 @@ function ValidatePassword(){
     }
     else if(text.match(passw)) {
         messageIndex ="";
+        obj.password=inputPassword.value;
+
         return
       
     } else{
         messageIndex ="Input Password and Submit [3 to 20 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character]";
      }
-    console.log(messageIndex);
 }
 function passwordFun(){
     if(messageIndex){
@@ -148,6 +158,8 @@ function passwordFun(){
 function ValidateCountry(){
     var value = selectCountry.value;
     var text = selectCountry.options[selectCountry.selectedIndex].text;
+    obj.country=text;
+
     if(Number(value) === -1){
         messageIndex='country is requried';
        
@@ -166,3 +178,27 @@ function errorCountryFun(){
            errorCountry.textContent=messageIndex;
        }
    }
+
+   function postMethod(){
+   fetch('https://jsonplaceholder.typicode.com/posts', {
+  method: 'POST',
+  body: JSON.stringify(obj),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((json) =>  removeFun(json));
+}
+
+function removeFun(data){
+    console.log(data)
+    let result = data.hasOwnProperty('id');
+console.log(result); // true
+if(result){
+  document.querySelector('.formDetails').setAttribute("style", "background: none; border:none ");
+  document.querySelector('.end').setAttribute("style","display:block");
+form.remove();
+
+}
+}

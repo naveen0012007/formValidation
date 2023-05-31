@@ -9,12 +9,6 @@
 
 body {
   background: rgb(34, 193, 195);
-  background: linear-gradient(
-    0deg,
-    rgba(34, 193, 195, 1) 19%,
-    rgba(120, 210, 66, 1) 71%,
-    rgba(74, 253, 45, 0.87718837535014) 100%
-  );
 }
 .formDetails {
   border: 2px solid black;
@@ -74,35 +68,15 @@ input,
 #selectCountry {
   width: 90%;
 }
-
-/*
-
-
-function ValidateCountry(){
-    console.log('selection country',selectCountry.value);
-    var value = selectCountry.value;
-    console.log({value});
-    var text = selectCountry.options[selectCountry.selectedIndex].text;
-    console.log(text);
-    if(Number(value) === -1){
-        // messageIndex='country should be requried';
-       
-     }else{    
-         messageIndex=''
-     }
-     console.log(messageIndex);
-    
-    
+.end {
+  width: 40%;
+  margin: 0 auto;
+  border: 1px solid black;
+  text-align: center;
+  background-color: rgb(247, 58, 25);
+  border-radius: 30px;
+  display: none;
 }
-
- function errorMessageFun(){
- if(messageIndex){
-    fromEvent.preventDefault();
-    message.textContent=messageIndex
-    }
-    else{
-        fromEvent.preventDefault();
-        message.textContent=messageIndex;
-    }
+h2 {
+  margin: 30px;
 }
-*/
